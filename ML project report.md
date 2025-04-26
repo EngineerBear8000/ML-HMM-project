@@ -79,7 +79,16 @@ The perceptron training algorithm works as follows:
 
 Once the training step is completed, the weights obtained are then used to predict the labels of each word in the dataset.
 
-While the implementation was not fully completed, it laid groundwork for a more adaptive sequence labeling approach that could potentially improve upon the HMM model's performance.
+Running the algorithm using train as the test set, dev.in as the test set  for 20 epochs, the following results were obtained:
+- Entity precision around 36.3%
+- Entity recall around 55.7%
+- F-score of approximately 0.4397
+
+While the f-score obtained for this perceptron was way lower than that of the HMM, this can be due to a number of reasons:
+- The training dataset might be too small for the perceptron algortihm, resulting in biasness towards more frequent labels and poor generalization to unseen or rare examples during testing.
+- The perceptron algorithm makes greedy decisions on the optimal label, whereas the HMM finds the global best using Viterbi.
+
+While the features of the current Structured Perceptron is limited, it laid groundwork for a more adaptive sequence labeling approach that could potentially improve upon the HMM model's performance.
 
 ## Experimental Results and Observations
 
