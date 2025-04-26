@@ -56,7 +56,7 @@ The implementation successfully demonstrated the ability to generate multiple ca
 
 ## 4. Feature-Based Perceptron Model: Towards Advanced Sequence Labeling
 
-The fourth phase introduced a feature-based perceptron approach to sequence labeling, representing a more sophisticated machine learning technique for named entity recognition.
+The fourth phase introduced a structured perceptron approach to sequence labeling, representing a more sophisticated machine learning technique for named entity recognition.
 
 Key components of the feature-based model included:
 - Comprehensive feature extraction function
@@ -66,12 +66,18 @@ Key components of the feature-based model included:
   * Numeric content
   * Punctuation
   * Contextual word information
-  * Previous and next word context
+  * Shape of the word 
+  * Previous and next word context up to the adjacent 2 words
 
-The perceptron training algorithm:
+The perceptron training algorithm works as follows:
 - Initializes weights to zero
-- Iteratively updates weights based on prediction errors
+- Loops through a user-specified number of epochs
+- Calls on the predict_sequence function to obtain a list of predicted labels for the sentence
+- Compares the true and predicted labels, increasing and decreasing the weights iteratively 
 - Learns feature importance for different tag predictions
+- Obtains the weights to be used on the test set.
+
+Once the training step is completed, the weights obtained are then used to predict the labels of each word in the dataset.
 
 While the implementation was not fully completed, it laid groundwork for a more adaptive sequence labeling approach that could potentially improve upon the HMM model's performance.
 
